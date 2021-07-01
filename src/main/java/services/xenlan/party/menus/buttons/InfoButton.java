@@ -10,6 +10,7 @@ import services.xenlan.party.api.PartyAPI;
 import services.xenlan.party.manager.PartyManager;
 import services.xenlan.party.object.PartyUser;
 import services.xenlan.party.util.CC;
+import services.xenlan.party.util.ItemBuilder;
 import services.xenlan.party.util.menu.Button;
 
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ public class InfoButton extends Button {
 						"&fLeader: &b" + PartyAPI.getPartyUserName(user.getPartyIn().getLeader().getUuid()),
 						"&fMembers: &b" + (user.getPartyIn().getMembers().isEmpty() ? "None" : StringUtils.join(names, ", "))
 						)))
-				.build();
+				.make();
 	}
 
 	@Override

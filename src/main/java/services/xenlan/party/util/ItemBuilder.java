@@ -33,16 +33,17 @@ public class ItemBuilder {
 	/*
 	Sets the display name of the provided ItemStack when creating a new instance of the ItemBuilder.java Class.
 	 */
-	public void setDisplayName(String newName) {
+	public ItemBuilder setDisplayName(String newName) {
 		ItemMeta meta = this.stack.getItemMeta();
 		meta.setDisplayName(CC.chat(newName));
 		this.stack.setItemMeta(meta);
+		return this;
 	}
 
 	/*
 	Add to the lore of the provided ItemStack when creating a new instance of the ItemBuilder.java Class.
  	*/
-	public void addLore(String toAdd) {
+	public ItemBuilder addLore(String toAdd) {
 		ItemMeta meta = this.stack.getItemMeta();
 
 		List<String> newLore = new ArrayList<>();
@@ -53,17 +54,24 @@ public class ItemBuilder {
 			meta.setLore(newLore);
 		}
 		this.stack.setItemMeta(meta);
+		return this;
 	}
 
 	/*
 	Sets the lore of the provided ItemStack when creating a new instance of the ItemBuilder.java Class.
  	*/
-	public void setLore(List<String> toSet) {
+	public ItemBuilder setLore(List<String> toSet) {
 		ItemMeta meta = this.stack.getItemMeta();
 
 		meta.setLore(toSet);
 
 		this.stack.setItemMeta(meta);
+		return this;
+	}
+
+	public ItemStack make() {
+		return this.stack;
+
 	}
 
 }
